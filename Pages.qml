@@ -3,6 +3,7 @@ import QtQuick
 import "./pages"
 
 Item {
+    id: rootId
     property int index: 0
 
     Item {
@@ -11,13 +12,13 @@ Item {
         PageOne {
             anchors.fill: parent
 
-            visible: index === 0
+            visible: rootId.index === 0
         }
 
         PageTwo {
             anchors.fill: parent
 
-            visible: index === 1
+            visible: rootId.index === 1
         }
     }
 }

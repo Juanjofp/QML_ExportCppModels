@@ -1,5 +1,4 @@
-import QtQuick 2.15
-import QtQuick.Controls
+import QtQuick
 import QtQuick.Layouts
 
 import com.jjfp
@@ -21,7 +20,7 @@ Item {
 
         Rectangle {
             Layout.fillWidth: true
-            height: 2
+            implicitHeight: 2
             color: "green"
         }
 
@@ -34,7 +33,7 @@ Item {
 
         Rectangle {
             Layout.fillWidth: true
-            height: 2
+            implicitHeight: 2
             color: "green"
         }
 
