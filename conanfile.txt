@@ -1,0 +1,6 @@
+[requires]
+github_info/1.0.0@juanjofp/stable
+
+[generators]
+CMakeDeps
+CMakeToolchain
