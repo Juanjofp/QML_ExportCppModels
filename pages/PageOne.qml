@@ -29,6 +29,10 @@ Item {
             Layout.fillHeight: true
 
             gitUserModel: UIManager.userModel
+
+            onDeleteUser: function deleteUser(name, email, index) {
+                UIManager.removeGitUser(name, email, index)
+            }
         }
 
         Rectangle {

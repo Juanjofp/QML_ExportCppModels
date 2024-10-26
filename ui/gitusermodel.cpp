@@ -64,6 +64,15 @@ void GitUserModel::addGitUser(std::unique_ptr<GitUser> &gitUser)
     emit gitUserCountChanged();
 }
 
+void GitUserModel::removeGitUser(int index)
+{
+    beginRemoveRows(QModelIndex{}, index, index);
+
+    gitUsers_.erase(gitUsers_.begin() + index);
+
+    endRemoveRows();
+}
+
 int GitUserModel::gitUserCount() const
 {
     return rowCount(QModelIndex{});

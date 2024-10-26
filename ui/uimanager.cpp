@@ -30,4 +30,11 @@ void UIManager::addGitUser(const QString &name, const QString &email)
     userModel_->addGitUser(newUser);
 }
 
+void UIManager::removeGitUser(const QString &name, const QString &email, int index)
+{
+    qDebug() << "From UIManager: Delete" << name << email << index;
+
+    userModel_->removeGitUser(index);
+}
+
 } // namespace jjfp::ui

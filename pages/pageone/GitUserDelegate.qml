@@ -6,6 +6,8 @@ Control {
 
     padding: 16
 
+    signal deleteMe(string name, string email, int index)
+
     background: Rectangle {
         color: 'dodgerblue'
 
@@ -27,6 +29,16 @@ Control {
             id: emailId
 
             text: email
+        }
+
+        Button {
+            text: 'Remove'
+
+            onClicked: {
+                console.log("Delete me", name, email, index)
+
+                deleteMe(name, email, index)
+            }
         }
     }
 }

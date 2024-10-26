@@ -22,6 +22,7 @@ signals:
 
 public slots:
     void addGitUser(const QString &name, const QString &email);
+    void removeGitUser(const QString &name, const QString &email, int index);
 
 private:
     std::unique_ptr<GitUserModel> userModel_;
