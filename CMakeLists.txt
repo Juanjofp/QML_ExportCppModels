@@ -1,13 +1,14 @@
 cmake_minimum_required(VERSION 3.16)
 
 # Incluir el toolchain de Conan si existe
-if(EXISTS "${CMAKE_BINARY_DIR}/conan_toolchain.cmake")
-    include("${CMAKE_BINARY_DIR}/conan_toolchain.cmake")
-endif()
+include("${CMAKE_BINARY_DIR}/conan_toolchain.cmake")
 
 project(AdvancedUI VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Añadir el directorio de Conan a CMAKE_PREFIX_PATH
+list(APPEND CMAKE_PREFIX_PATH "${CMAKE_BINARY_DIR}")
 
 find_package(Qt6 6.5 REQUIRED COMPONENTS Quick QuickControls2)
 
@@ -47,16 +48,17 @@ set_target_properties(appAdvancedUI PROPERTIES
   WIN32_EXECUTABLE TRUE
 )
 
-find_package(github_info)
+# Encontrar el paquete github_info generado por Conan
+find_package(github_info REQUIRED)
 
 target_link_libraries(appAdvancedUI
   PRIVATE Qt6::Quick Qt6::QuickControls2 github_info::github_info
 )
 
-# Incluir los directorios de las dependencias
-target_include_directories(appAdvancedUI
-  PRIVATE ${CONAN_INCLUDE_DIRS}
-)
+target_include_directories(appAdvancedUI PRIVATE ${CMAKE_BINARY_DIR}/conan_deps/include)
+
+
+
 
 include(GNUInstallDirs)
 install(TARGETS appAdvancedUI

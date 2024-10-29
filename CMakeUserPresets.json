@@ -1,0 +1,9 @@
+{
+    "version": 4,
+    "vendor": {
+        "conan": {}
+    },
+    "include": [
+        "build/Qt_6_8_0_for_macOS-Debug/CMakePresets.json"
+    ]
+}
